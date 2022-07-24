@@ -1,16 +1,11 @@
-import { useContext } from "react";
-import ProgressContext from "./store/progress";
 import Main from "./pages/Main";
-import Intro from "./pages/Intro";
+import Step from "./pages/Step";
+import { useState } from "react";
 
 function App() {
-  const progress = useContext(ProgressContext);
-  return (
-    <ProgressContext.Provider>
-      {progress === 0 && <Main />}
-      {progress === 1 && <Intro />}
-    </ProgressContext.Provider>
-  );
+  const [startGame, setStartGame] = useState();
+
+  return <>{startGame ? <Step /> : <Main setStartGame={setStartGame} />}</>;
 }
 
 export default App;
