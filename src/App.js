@@ -1,11 +1,11 @@
 import Main from "./pages/Main";
 import Step from "./pages/Step";
-import { useState } from "react";
+import { useProgress } from "./store/Progress";
 
 function App() {
-  const [startGame, setStartGame] = useState();
+  const { startGame } = useProgress();
 
-  return <>{startGame ? <Step /> : <Main setStartGame={setStartGame} />}</>;
+  return <>{startGame ? <Step /> : <Main />}</>;
 }
 
 export default App;

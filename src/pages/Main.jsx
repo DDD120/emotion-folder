@@ -5,16 +5,16 @@ const Layout = styled.main`
   text-align: center;
 `;
 
-const Main = ({ setStartGame }) => {
-  const [, action] = useProgress();
+const Main = () => {
+  const { action } = useProgress();
 
   const startNewGame = () => {
     action.new();
-    setStartGame(true);
+    action.startGame();
   };
   const startLoadGame = () => {
     action.loadGame();
-    setStartGame(true);
+    action.startGame();
   };
 
   return (

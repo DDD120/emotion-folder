@@ -7,9 +7,9 @@ import Container from "./components/common/Container";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <Container>
-    <ProgressProvider>
+  <ProgressProvider>
+    <Container>
       <App />
-    </ProgressProvider>
-  </Container>
+    </Container>
+  </ProgressProvider>
 );

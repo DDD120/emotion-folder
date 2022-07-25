@@ -4,6 +4,7 @@ const ProgressContext = createContext();
 
 const ProgressProvider = ({ children }) => {
   const [step, setStep] = useState(0);
+  const [startGame, setStartGame] = useState(false);
   const action = useMemo(
     () => ({
       new() {
@@ -18,11 +19,20 @@ const ProgressProvider = ({ children }) => {
         const stepIndex = localStorage.getItem("step");
         setStep(Number(stepIndex));
       },
+      startGame() {
+        setStartGame(true);
+      },
+      goHome() {
+        setStartGame(false);
+      },
     }),
     [step]
   );
 
-  const value = useMemo(() => [step, action], [step, action]);
+  const value = useMemo(
+    () => ({ step, action, startGame, setStartGame }),
+    [step, action, startGame, setStartGame]
+  );
 
   return (
     <ProgressContext.Provider value={value}>

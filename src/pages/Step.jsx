@@ -1,8 +1,8 @@
 import { useProgress } from "../store/Progress";
 
 const Step = () => {
-  const [step] = useProgress();
-  console.log(step);
+  const { step } = useProgress();
+
   return (
     <>
       <h1>In Game</h1>
